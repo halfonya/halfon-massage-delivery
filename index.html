@@ -78,11 +78,13 @@
           </div></fieldset>
           <fieldset><legend>פרטי השליחות</legend><div class="form-grid">
             <label><span>משקל משוער</span><select id="weight"><option>עד 2 ק״ג</option><option>2–5 ק״ג</option><option>5–10 ק״ג</option><option>מעל 10 ק״ג</option></select></label>
-            <label><span>מרחק משוער</span><select id="distance"><option>עד 3 ק״מ</option><option>3–8 ק״מ</option><option>8–15 ק״מ</option><option>מעל 15 ק״מ</option></select></label>
-            <label class="wide"><span>כתובת איסוף</span><input id="pickup" type="text" autocomplete="street-address" required placeholder="רחוב, מספר ועיר" /></label>
+            <div class="distance-readout"><span>מרחק נסיעה</span><strong id="route-distance">ייחשב לפי מסלול</strong></div>
+            <label class="wide"><span>כתובת איסוף</span><input id="pickup" type="text" autocomplete="street-address" required placeholder="רחוב, מספר ועיר" /><button class="location-button" id="share-location" type="button">⌖ שתף את המיקום שלי</button></label>
             <label class="wide"><span>כתובת יעד</span><input id="dropoff" type="text" autocomplete="street-address" required placeholder="רחוב, מספר ועיר" /></label>
           </div></fieldset>
           <fieldset><legend>מתי?</legend><div class="time-toggle"><button class="is-selected" type="button" aria-pressed="true" data-time="עכשיו">עכשיו</button><button type="button" aria-pressed="false" data-time="מתוזמן">מתוזמן</button></div></fieldset>
+          <button class="quote-button" id="calculate-price" type="button">חשב מחיר משוער</button>
+          <section id="price-estimate" class="price-estimate" hidden aria-live="polite"></section>
           <button class="primary-button delivery-action" type="submit">המשך לסיכום</button>
         </form>
         <section id="delivery-summary" class="delivery-summary" hidden aria-live="polite"></section>
