@@ -1,5 +1,8 @@
 const pricing = { base: 20, perKm: 5, minimum: 25, weight: { 'עד 2 ק״ג': 0, '2–5 ק״ג': 5, '5–10 ק״ג': 10 } };
-const state = { treatment: '', package: 'חבילה קטנה', time: 'עכשיו', pickupCoords: null, estimate: null };
+const state = {
+  treatment: '', package: 'חבילה קטנה', time: 'עכשיו', pickupCoords: null, estimate: null,
+  massage: { location: 'clinic', homeAddress: '', homeCoords: null, iceBath: false, doctorApproved: false }
+};
 const pages = [...document.querySelectorAll('[data-page]')];
 const navLinks = [...document.querySelectorAll('.nav-link')];
 const toastBox = document.querySelector('#toast');
@@ -12,6 +15,13 @@ const weightSelect = document.querySelector('#weight');
 const quoteButton = document.querySelector('#calculate-price');
 const quoteBox = document.querySelector('#price-estimate');
 const distanceReadout = document.querySelector('#route-distance');
+const massageAddressInput = document.querySelector('#massage-address');
+const massageLocationFields = document.querySelector('#home-visit-fields');
+const massageLocationButton = document.querySelector('#massage-share-location');
+const massageExtras = document.querySelector('#massage-extras');
+const iceBathInput = document.querySelector('#ice-bath');
+const medicalApproval = document.querySelector('#medical-approval');
+const doctorApprovalInput = document.querySelector('#doctor-approval');
 let toastTimer;
 let priorFocus;
 
@@ -170,6 +180,45 @@ async function useCurrentLocation() {
   }, { enableHighAccuracy: true, timeout: 12000, maximumAge: 60000 });
 }
 
+function updateMassageExtras() {
+  const items = state.massage.location === 'home'
+    ? ['<li><span>טיפול בבית הלקוח</span><b>תוספת הגעה לפי מרחק ב־WhatsApp</b></li>']
+    : ['<li><span>מיקום הטיפול</span><b>בקליניקה</b></li>'];
+  items.push(state.massage.iceBath
+    ? '<li><span>אמבטיית קרח</span><b>₪25 · בכפוף לאישור רופא</b></li>'
+    : '<li><span>אמבטיית קרח</span><b>לא נבחרה</b></li>');
+  massageExtras.innerHTML = `<strong>תוספות להזמנה</strong><ul>${items.join('')}</ul>`;
+}
+
+function useMassageLocation() {
+  if (!navigator.geolocation) {
+    toast('שיתוף מיקום אינו נתמך בדפדפן זה. אפשר להזין כתובת ידנית.');
+    return;
+  }
+  massageLocationButton.disabled = true;
+  massageLocationButton.textContent = 'מאתרים את המיקום…';
+  navigator.geolocation.getCurrentPosition(async position => {
+    const coords = { lat: position.coords.latitude, lon: position.coords.longitude };
+    state.massage.homeCoords = coords;
+    try {
+      massageAddressInput.value = await reverseGeocode(coords);
+      state.massage.homeAddress = massageAddressInput.value.trim();
+      toast('כתובת הטיפול זוהתה. אפשר לתקן אותה במידת הצורך.');
+    } catch {
+      massageAddressInput.value = `${coords.lat.toFixed(5)}, ${coords.lon.toFixed(5)}`;
+      state.massage.homeAddress = massageAddressInput.value;
+      toast('המיקום נשמר, אך לא אותרה כתובת מלאה. אפשר להשלים ידנית.');
+    } finally {
+      massageLocationButton.disabled = false;
+      massageLocationButton.textContent = '⌖ שתף את המיקום שלי';
+    }
+  }, () => {
+    toast('לא התקבלה הרשאה למיקום. אפשר להזין כתובת ידנית.');
+    massageLocationButton.disabled = false;
+    massageLocationButton.textContent = '⌖ שתף את המיקום שלי';
+  }, { enableHighAccuracy: true, timeout: 12000, maximumAge: 60000 });
+}
+
 document.querySelectorAll('[data-target]').forEach(button => button.addEventListener('click', () => navigate(button.dataset.target)));
 document.querySelectorAll('[data-toast]').forEach(button => button.addEventListener('click', () => toast(button.dataset.toast)));
 window.addEventListener('hashchange', () => renderPage());
@@ -188,8 +237,51 @@ document.querySelectorAll('.treatment-card').forEach(card => card.addEventListen
 
 document.querySelector('#treatment-continue').addEventListener('click', () => {
   if (!state.treatment) return;
-  showSheet('הבחירה נשמרה', `בחרת ב־${state.treatment}. בגרסה הבאה ייפתח כאן יומן בחירת מועד ושעה פנויים.`);
+  if (state.massage.location === 'home' && !massageAddressInput.value.trim()) {
+    toast('יש להזין כתובת לטיפול בבית הלקוח או לשתף מיקום');
+    return;
+  }
+  if (state.massage.iceBath && !state.massage.doctorApproved) {
+    toast('יש לאשר שקיים אישור רופא תקף עבור אמבטיית הקרח');
+    return;
+  }
+  const location = state.massage.location === 'home'
+    ? `טיפול בבית הלקוח: ${massageAddressInput.value.trim()}. תוספת ההגעה תיקבע לפי המרחק בשלב ה־WhatsApp.`
+    : 'מיקום הטיפול: בקליניקה.';
+  const iceBath = state.massage.iceBath
+    ? 'אמבטיית קרח נוספה בתוספת ₪25, בכפוף לאישור הרופא שאישרת.'
+    : 'ללא אמבטיית קרח.';
+  showSheet('פרטי הטיפול נשמרו', `טיפול: ${state.treatment}. ${location} ${iceBath} בשלב הבא נבחר מועד ונמשיך לתיאום.`);
 });
+
+document.querySelectorAll('[data-massage-location]').forEach(button => button.addEventListener('click', () => {
+  document.querySelectorAll('[data-massage-location]').forEach(item => {
+    item.classList.remove('is-selected');
+    item.setAttribute('aria-pressed', 'false');
+  });
+  button.classList.add('is-selected');
+  button.setAttribute('aria-pressed', 'true');
+  state.massage.location = button.dataset.massageLocation;
+  massageLocationFields.hidden = state.massage.location !== 'home';
+  updateMassageExtras();
+}));
+
+massageAddressInput.addEventListener('input', () => {
+  state.massage.homeCoords = null;
+  state.massage.homeAddress = massageAddressInput.value.trim();
+});
+massageLocationButton.addEventListener('click', useMassageLocation);
+iceBathInput.addEventListener('change', () => {
+  state.massage.iceBath = iceBathInput.checked;
+  if (!state.massage.iceBath) {
+    doctorApprovalInput.checked = false;
+    state.massage.doctorApproved = false;
+  }
+  medicalApproval.hidden = !state.massage.iceBath;
+  updateMassageExtras();
+});
+doctorApprovalInput.addEventListener('change', () => { state.massage.doctorApproved = doctorApprovalInput.checked; });
+updateMassageExtras();
 
 document.querySelectorAll('.package-option').forEach(option => option.addEventListener('click', () => {
   document.querySelectorAll('.package-option').forEach(item => {

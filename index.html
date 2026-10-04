@@ -61,7 +61,21 @@
           <button class="treatment-card" type="button" aria-pressed="false" data-treatment="עיסוי ספורטאים עמוק"><span class="treatment-icon">↝</span><span><b>עיסוי ספורטאים עמוק</b><small>לעומס שרירי, התאוששות וטווח תנועה</small></span><i>✓</i></button>
           <button class="treatment-card" type="button" aria-pressed="false" data-treatment="שילוב כוסות רוח"><span class="treatment-icon">◌</span><span><b>שילוב כוסות רוח</b><small>טיפול ממוקד לשחרור והמרצת הגוף</small></span><i>✓</i></button>
         </div>
-        <button class="primary-button massage-action" id="treatment-continue" type="button" disabled>המשך לבחירת מועד</button>
+        <fieldset class="massage-options"><legend>מיקום הטיפול</legend><div class="massage-location-toggle">
+          <button class="is-selected" type="button" aria-pressed="true" data-massage-location="clinic"><span>⌂</span>בקליניקה</button>
+          <button type="button" aria-pressed="false" data-massage-location="home"><span>⌖</span>בבית הלקוח</button>
+        </div>
+        <div id="home-visit-fields" class="home-visit-fields" hidden>
+          <label><span>כתובת הטיפול</span><input id="massage-address" type="text" autocomplete="street-address" placeholder="רחוב, מספר ועיר" /></label>
+          <button class="location-button" id="massage-share-location" type="button">⌖ שתף את המיקום שלי</button>
+          <p>תוספת ההגעה תחושב לפי מרחק ותתואם איתך בשלב ה־WhatsApp.</p>
+        </div></fieldset>
+        <fieldset class="massage-options ice-bath-section"><legend>לפני הטיפול</legend>
+          <label class="ice-bath-choice"><input id="ice-bath" type="checkbox" /><span><strong>אמבטיית קרח לפני הטיפול</strong><small>תוספת להתאוששות ולרענון לפני העיסוי</small></span><b>+ ₪25</b></label>
+          <label id="medical-approval" class="medical-approval" hidden><input id="doctor-approval" type="checkbox" /><span><strong>יש בידי אישור רופא תקף</strong><small>אני מבין/ה שאמבטיית קרח תתווסף רק בכפוף לאישור רופא.</small></span></label>
+        </fieldset>
+        <section id="massage-extras" class="massage-extras" aria-live="polite"></section>
+        <button class="primary-button massage-action" id="treatment-continue" type="button" disabled>המשך לסיכום הטיפול</button>
       </section>
 
       <section class="page delivery-page" data-page="delivery">
