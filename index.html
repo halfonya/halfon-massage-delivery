@@ -1,11 +1,11 @@
 <!doctype html>
-<html lang="he" dir="rtl">
+<html lang="he" dir="rtl" data-theme="light">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="theme-color" content="#17483a" />
-  <meta name="description" content="כל־פון — מגע, תנועה ושליחויות פרטיות, במקום אחד." />
-  <title>כל־פון | מגע, תנועה ושליחויות</title>
+  <meta name="description" content="CALLPHON — מגע, תנועה ושליחויות פרטיות, במקום אחד." />
+  <title>CALLPHON | מגע, תנועה ושליחויות</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet" />
@@ -16,136 +16,158 @@
     <main class="app" id="app">
       <section class="page home-page is-active" data-page="home">
         <header class="topbar">
-          <button class="icon-button" type="button" aria-label="פתיחת תפריט" data-toast="התפריט המלא יתווסף בשלב הבא">☰</button>
-          <div class="brand" aria-label="כל־פון — מגע, תנועה ושליחויות"><span class="brand-symbol" aria-hidden="true">☯</span><span class="brand-name">כל־פון</span><small class="brand-tagline">מגע • תנועה • שליחויות</small></div>
+          <button class="icon-button" id="menu-open" type="button" aria-label="פתיחת תפריט">☰</button>
+          <div class="brand" aria-label="CALLPHON — קול־פון">
+            <span class="brand-symbol" aria-hidden="true">☯</span>
+            <span class="brand-name">CALLPHON</span>
+            <small class="brand-hebrew">קול־פון</small>
+            <small class="brand-tagline" data-i18n="brand.tagline">מגע • תנועה • שליחויות</small>
+          </div>
           <button class="icon-button profile-dot" type="button" aria-label="פרופיל" data-target="profile">●</button>
         </header>
 
         <div class="greeting">
           <img class="greeting-ornament greeting-ornament--left" src="assets/greeting-ornament-left.png" alt="" aria-hidden="true" />
-          <div class="greeting-copy"><h1 id="welcome-heading" data-greeting-prefix="ברוך שובך">ברוך שובך</h1><p>מה תרצה היום?</p><span></span></div>
+          <div class="greeting-copy"><h1 id="welcome-heading" data-greeting-prefix="ברוך שובך">ברוך שובך</h1><p data-i18n="home.question">מה תרצה היום?</p><span></span></div>
           <img class="greeting-ornament greeting-ornament--right" src="assets/greeting-ornament-right.png" alt="" aria-hidden="true" />
         </div>
 
-        <div class="service-grid" aria-label="בחירת שירות">
+        <button id="whatsapp-hero" class="whatsapp-hero" type="button"><span class="whatsapp-hero-icon" aria-hidden="true">◔</span><span><small data-i18n="contact.heroEyebrow">יש שאלה? אנחנו כאן בשבילך</small><strong data-i18n="contact.heroWhatsapp">צור קשר ב־WhatsApp</strong></span><i aria-hidden="true">‹</i></button>
+
+        <div class="service-grid" aria-label="בחירת שירות" data-i18n-aria="home.services">
           <button class="service-tile massage-tile" type="button" data-target="massage">
-            <img src="assets/massage-card.jpg" alt="מעסה ומטופל במהלך עיסוי מקצועי" />
-            <strong>בחר סוג טיפול</strong>
-            <small>רוגע שמתחיל עכשיו</small>
-            <i aria-hidden="true">‹</i>
+            <img src="assets/massage-card.jpg" alt="מעסה ומטופל במהלך עיסוי מקצועי" data-i18n-alt="images.massage" />
+            <strong data-i18n="home.chooseMassage">בחר סוג טיפול</strong>
+            <small data-i18n="home.massageSub">רוגע שמתחיל עכשיו</small><i aria-hidden="true">‹</i>
           </button>
           <button class="service-tile delivery-tile" type="button" data-target="delivery">
-            <img src="assets/courier-card.jpg" alt="שליח על אופניים עם חבילה" />
-            <strong>בחר סוג שליחות</strong>
-            <small>מגיעים עד אליך</small>
-            <i aria-hidden="true">‹</i>
+            <img src="assets/courier-card.jpg" alt="שליח על אופניים עם חבילה" data-i18n-alt="images.delivery" />
+            <strong data-i18n="home.chooseDelivery">בחר סוג שליחות</strong>
+            <small data-i18n="home.deliverySub">מגיעים עד אליך</small><i aria-hidden="true">‹</i>
           </button>
         </div>
 
-        <section class="service-carousel" id="service-carousel" aria-label="מסרים מהשירותים שלנו" aria-roledescription="carousel">
+        <section class="service-carousel" id="service-carousel" aria-label="מסרים מהשירותים שלנו" aria-roledescription="carousel" data-i18n-aria="carousel.label">
           <article class="carousel-slide is-active" data-carousel-slide aria-label="1 מתוך 6">
-            <img src="assets/carousel-delivery.jpg" alt="לקוחה מקבלת חבילה משליח אופניים בפתח הבית" />
-            <div class="carousel-copy"><span>קו שליחויות חדש</span><h2>אחריות ואמינות בכל מסירה</h2><p>מגיעים אליך בדיוק כשחשוב.</p></div>
+            <img src="assets/carousel-delivery.jpg" alt="לקוחה מקבלת חבילה משליח אופניים בפתח הבית" data-i18n-alt="carousel.delivery1.alt" />
+            <div class="carousel-copy"><span data-i18n="carousel.delivery1.eyebrow">קו שליחויות חדש</span><h2 data-i18n="carousel.delivery1.title">אחריות ואמינות בכל מסירה</h2><p data-i18n="carousel.delivery1.text">מגיעים אליך בדיוק כשחשוב.</p></div>
           </article>
           <article class="carousel-slide" data-carousel-slide aria-label="2 מתוך 6">
-            <img src="assets/carousel-delivery-personal.jpg" alt="שליח מוסר חבילה אישית לעסק מקומי" />
-            <div class="carousel-copy"><span>יחס אישי</span><h2>שירות שתכירו ותוקירו</h2><p>כל שליחות מקבלת את תשומת הלב שלה.</p></div>
+            <img src="assets/carousel-massage-men.jpg" alt="מעסה מעניק עיסוי מקצועי למטופל בחדר טיפול רגוע" data-i18n-alt="carousel.massage1.alt" />
+            <div class="carousel-copy"><span data-i18n="carousel.massage1.eyebrow">זמן לעצמך</span><h2 data-i18n="carousel.massage1.title">הרשה לעצמך לטפל בך</h2><p data-i18n="carousel.massage1.text">מגע מקצועי לשחרור, איזון וחידוש כוחות.</p></div>
           </article>
           <article class="carousel-slide" data-carousel-slide aria-label="3 מתוך 6">
-            <img src="assets/carousel-delivery-reliable.jpg" alt="שליח מוסר חבילת מתנה ללקוחה בפתח הבית" />
-            <div class="carousel-copy"><span>בדרך שלך</span><h2>מוסרים באחריות. מגיעים באמינות.</h2><p>מהדלת שלך ועד היעד — בידיים טובות.</p></div>
+            <img src="assets/carousel-delivery-personal.jpg" alt="שליח מוסר חבילה אישית לעסק מקומי" data-i18n-alt="carousel.delivery2.alt" />
+            <div class="carousel-copy"><span data-i18n="carousel.delivery2.eyebrow">יחס אישי</span><h2 data-i18n="carousel.delivery2.title">שירות שתכירו ותוקירו</h2><p data-i18n="carousel.delivery2.text">כל שליחות מקבלת את תשומת הלב שלה.</p></div>
           </article>
           <article class="carousel-slide" data-carousel-slide aria-label="4 מתוך 6">
-            <img src="assets/carousel-massage-men.jpg" alt="מעסה מעניק עיסוי מקצועי למטופל בחדר טיפול רגוע" />
-            <div class="carousel-copy"><span>זמן לעצמך</span><h2>הרשה לעצמך לטפל בך</h2><p>מגע מקצועי לשחרור, איזון וחידוש כוחות.</p></div>
+            <img src="assets/carousel-cupping.jpg" alt="מעסה מניח כוסות רוח לאורך גב המטופל בטיפול מקצועי" data-i18n-alt="carousel.cupping.alt" />
+            <div class="carousel-copy"><span data-i18n="carousel.cupping.eyebrow">טיפול ממוקד</span><h2 data-i18n="carousel.cupping.title">שילוב כוסות רוח לשחרור עמוק</h2><p data-i18n="carousel.cupping.text">טיפול אישי שמתחיל בהקשבה לגוף.</p></div>
           </article>
           <article class="carousel-slide" data-carousel-slide aria-label="5 מתוך 6">
-            <img src="assets/carousel-cupping.jpg" alt="מעסה מניח כוסות רוח לאורך גב המטופל בטיפול מקצועי" />
-            <div class="carousel-copy"><span>טיפול ממוקד</span><h2>שילוב כוסות רוח לשחרור עמוק</h2><p>טיפול אישי שמתחיל בהקשבה לגוף.</p></div>
+            <img src="assets/carousel-delivery-reliable.jpg" alt="שליח מוסר חבילת מתנה ללקוחה בפתח הבית" data-i18n-alt="carousel.delivery3.alt" />
+            <div class="carousel-copy"><span data-i18n="carousel.delivery3.eyebrow">בדרך שלך</span><h2 data-i18n="carousel.delivery3.title">מוסרים באחריות. מגיעים באמינות.</h2><p data-i18n="carousel.delivery3.text">מהדלת שלך ועד היעד — בידיים טובות.</p></div>
           </article>
           <article class="carousel-slide" data-carousel-slide aria-label="6 מתוך 6">
-            <img src="assets/carousel-massage-reflexology.jpg" alt="מעסה מבצע טיפול רפלקסולוגיה למטופל רגוע" />
-            <div class="carousel-copy"><span>איזון שמתחיל בכפות הרגליים</span><h2>רוגע עמוק. חידוש כוחות.</h2><p>רפלקסולוגיה שמחזירה אותך לעצמך.</p></div>
+            <img src="assets/carousel-massage-reflexology.jpg" alt="מעסה מבצע טיפול רפלקסולוגיה למטופל רגוע" data-i18n-alt="carousel.reflexology.alt" />
+            <div class="carousel-copy"><span data-i18n="carousel.reflexology.eyebrow">איזון שמתחיל בכפות הרגליים</span><h2 data-i18n="carousel.reflexology.title">רוגע עמוק. חידוש כוחות.</h2><p data-i18n="carousel.reflexology.text">רפלקסולוגיה שמחזירה אותך לעצמך.</p></div>
           </article>
-          <div class="carousel-dots" role="tablist" aria-label="בחירת מסר בקרוסלה">
+          <div class="carousel-dots" role="tablist" aria-label="בחירת מסר בקרוסלה" data-i18n-aria="carousel.tabs">
             <button class="is-active" type="button" role="tab" aria-label="הצג מסר שליחויות ראשון" aria-selected="true" data-carousel-control="0"></button>
-            <button type="button" role="tab" aria-label="הצג מסר יחס אישי בשליחויות" aria-selected="false" data-carousel-control="1"></button>
-            <button type="button" role="tab" aria-label="הצג מסר אמינות בשליחויות" aria-selected="false" data-carousel-control="2"></button>
-            <button type="button" role="tab" aria-label="הצג מסר טיפול ראשון" aria-selected="false" data-carousel-control="3"></button>
-            <button type="button" role="tab" aria-label="הצג מסר טיפול כוסות רוח" aria-selected="false" data-carousel-control="4"></button>
+            <button type="button" role="tab" aria-label="הצג מסר עיסוי" aria-selected="false" data-carousel-control="1"></button>
+            <button type="button" role="tab" aria-label="הצג מסר יחס אישי בשליחויות" aria-selected="false" data-carousel-control="2"></button>
+            <button type="button" role="tab" aria-label="הצג מסר כוסות רוח" aria-selected="false" data-carousel-control="3"></button>
+            <button type="button" role="tab" aria-label="הצג מסר אמינות בשליחויות" aria-selected="false" data-carousel-control="4"></button>
             <button type="button" role="tab" aria-label="הצג מסר רפלקסולוגיה" aria-selected="false" data-carousel-control="5"></button>
           </div>
         </section>
       </section>
 
       <section class="page massage-page" data-page="massage">
-        <header class="subheader">
-          <button class="back-button" type="button" aria-label="חזרה לדף הבית" data-target="home">›</button>
-          <div><h1>בחירת טיפול</h1><p>קח רגע לעצמך. אנחנו כאן בשבילך.</p></div>
-        </header>
-        <section class="massage-intro"><div class="leaves" aria-hidden="true"></div><h2>איזה טיפול יעשה לך טוב היום?</h2><p>בחר טיפול ונמשיך יחד לקביעת המועד המתאים.</p></section>
-        <h2 class="section-heading">סוגי הטיפול שלנו</h2>
+        <header class="subheader"><button class="back-button" type="button" aria-label="חזרה לדף הבית" data-target="home">›</button><div><h1 data-i18n="massage.heading">בחירת טיפול</h1><p data-i18n="massage.subheading">קח רגע לעצמך. אנחנו כאן בשבילך.</p></div></header>
+        <section class="massage-intro"><div class="leaves" aria-hidden="true"></div><h2 data-i18n="massage.introTitle">איזה טיפול יעשה לך טוב היום?</h2><p data-i18n="massage.introText">בחר טיפול ונמשיך יחד לקביעת המועד המתאים.</p></section>
+        <h2 class="section-heading" data-i18n="massage.types">סוגי הטיפול שלנו</h2>
         <div class="treatment-list" role="list">
-          <button class="treatment-card" type="button" aria-pressed="false" data-treatment="רפלקסולוגיה"><span class="treatment-icon">◉</span><span><b>רפלקסולוגיה</b><small>איזון, הקלה ורוגע דרך כפות הרגליים</small></span><i>✓</i></button>
-          <button class="treatment-card" type="button" aria-pressed="false" data-treatment="עיסוי שבדי מרגיע ומשחרר"><span class="treatment-icon">✦</span><span><b>עיסוי שבדי מרגיע ומשחרר</b><small>מגע עדין לשחרור מתח והחזרת אנרגיה</small></span><i>✓</i></button>
-          <button class="treatment-card" type="button" aria-pressed="false" data-treatment="עיסוי ספורטאים עמוק"><span class="treatment-icon">↝</span><span><b>עיסוי ספורטאים עמוק</b><small>לעומס שרירי, התאוששות וטווח תנועה</small></span><i>✓</i></button>
-          <button class="treatment-card" type="button" aria-pressed="false" data-treatment="שילוב כוסות רוח"><span class="treatment-icon">◌</span><span><b>שילוב כוסות רוח</b><small>טיפול ממוקד לשחרור והמרצת הגוף</small></span><i>✓</i></button>
+          <button class="treatment-card" type="button" aria-pressed="false" data-treatment="reflexology"><span class="treatment-icon">◉</span><span><b data-i18n="treatment.reflexology">רפלקסולוגיה</b><small data-i18n="treatment.reflexologySub">איזון, הקלה ורוגע דרך כפות הרגליים</small></span><i>✓</i></button>
+          <button class="treatment-card" type="button" aria-pressed="false" data-treatment="swedish"><span class="treatment-icon">✦</span><span><b data-i18n="treatment.swedish">עיסוי שבדי מרגיע ומשחרר</b><small data-i18n="treatment.swedishSub">מגע עדין לשחרור מתח והחזרת אנרגיה</small></span><i>✓</i></button>
+          <button class="treatment-card" type="button" aria-pressed="false" data-treatment="sports"><span class="treatment-icon">↝</span><span><b data-i18n="treatment.sports">עיסוי ספורטאים עמוק</b><small data-i18n="treatment.sportsSub">לעומס שרירי, התאוששות וטווח תנועה</small></span><i>✓</i></button>
+          <button class="treatment-card" type="button" aria-pressed="false" data-treatment="cupping"><span class="treatment-icon">◌</span><span><b data-i18n="treatment.cupping">שילוב כוסות רוח</b><small data-i18n="treatment.cuppingSub">טיפול ממוקד לשחרור והמרצת הגוף</small></span><i>✓</i></button>
         </div>
-        <fieldset class="massage-options"><legend>מיקום הטיפול</legend><div class="massage-location-toggle">
-          <button class="is-selected" type="button" aria-pressed="true" data-massage-location="clinic"><span>⌂</span>בקליניקה</button>
-          <button type="button" aria-pressed="false" data-massage-location="home"><span>⌖</span>בבית הלקוח</button>
+        <fieldset class="massage-options"><legend data-i18n="massage.location">מיקום הטיפול</legend><div class="massage-location-toggle">
+          <button class="is-selected" type="button" aria-pressed="true" data-massage-location="clinic"><span>⌂</span><b data-i18n="massage.clinic">בקליניקה</b></button>
+          <button type="button" aria-pressed="false" data-massage-location="home"><span>⌖</span><b data-i18n="massage.home">בבית הלקוח</b></button>
         </div>
         <div id="home-visit-fields" class="home-visit-fields" hidden>
-          <label><span>כתובת הטיפול</span><input id="massage-address" type="text" autocomplete="street-address" placeholder="רחוב, מספר ועיר" /></label>
-          <button class="location-button" id="massage-share-location" type="button">⌖ שתף את המיקום שלי</button>
-          <p>תוספת ההגעה תחושב לפי מרחק ותתואם איתך בשלב ה־WhatsApp.</p>
+          <label><span data-i18n="massage.address">כתובת הטיפול</span><input id="massage-address" type="text" autocomplete="street-address" placeholder="רחוב, מספר ועיר" data-i18n-placeholder="massage.addressPlaceholder" /></label>
+          <button class="location-button" id="massage-share-location" type="button" data-i18n="location.share">⌖ שתף את המיקום שלי</button>
+          <p data-i18n="massage.travelNote">תוספת ההגעה תחושב לפי מרחק ותתואם איתך בשלב ה־WhatsApp.</p>
         </div></fieldset>
-        <fieldset class="massage-options ice-bath-section"><legend>לפני הטיפול</legend>
-          <label class="ice-bath-choice"><input id="ice-bath" type="checkbox" /><span><strong>אמבטיית קרח לפני הטיפול</strong><small>תוספת להתאוששות ולרענון לפני העיסוי</small></span><b>+ ₪25</b></label>
-          <label id="medical-approval" class="medical-approval" hidden><input id="doctor-approval" type="checkbox" /><span><strong>יש בידי אישור רופא תקף</strong><small>אני מבין/ה שאמבטיית קרח תתווסף רק בכפוף לאישור רופא.</small></span></label>
+        <fieldset class="massage-options ice-bath-section"><legend data-i18n="massage.before">לפני הטיפול</legend>
+          <label class="ice-bath-choice"><input id="ice-bath" type="checkbox" /><span><strong data-i18n="massage.iceBath">אמבטיית קרח לפני הטיפול</strong><small data-i18n="massage.iceBathSub">תוספת להתאוששות ולרענון לפני העיסוי</small></span><b>+ ₪25</b></label>
+          <label id="medical-approval" class="medical-approval" hidden><input id="doctor-approval" type="checkbox" /><span><strong data-i18n="massage.doctorApproval">יש בידי אישור רופא תקף</strong><small data-i18n="massage.doctorApprovalSub">אני מבין/ה שאמבטיית קרח תתווסף רק בכפוף לאישור רופא.</small></span></label>
         </fieldset>
         <section id="massage-extras" class="massage-extras" aria-live="polite"></section>
-        <button class="primary-button massage-action" id="treatment-continue" type="button" disabled>המשך לסיכום הטיפול</button>
+        <button class="primary-button massage-action" id="treatment-continue" type="button" disabled data-i18n="massage.continue">המשך לסיכום הטיפול</button>
       </section>
 
       <section class="page delivery-page" data-page="delivery">
-        <header class="subheader">
-          <button class="back-button" type="button" aria-label="חזרה לדף הבית" data-target="home">›</button>
-          <div><h1>בקשת שליחות</h1><p>כמה פרטים ונוכל להתקדם.</p></div>
-        </header>
-        <section class="delivery-intro"><div class="rings" aria-hidden="true"></div><h2>מה נשלח היום?</h2><p>בחר את סוג המשלוח, את נקודות האיסוף והיעד — ואנחנו נדאג להמשך.</p></section>
-
+        <header class="subheader"><button class="back-button" type="button" aria-label="חזרה לדף הבית" data-target="home">›</button><div><h1 data-i18n="delivery.heading">בקשת שליחות</h1><p data-i18n="delivery.subheading">כמה פרטים ונוכל להתקדם.</p></div></header>
+        <section class="delivery-intro"><div class="rings" aria-hidden="true"></div><h2 data-i18n="delivery.introTitle">מה נשלח היום?</h2><p data-i18n="delivery.introText">בחר את סוג המשלוח, את נקודות האיסוף והיעד — ואנחנו נדאג להמשך.</p></section>
         <form id="delivery-form" novalidate>
-          <fieldset><legend>סוג המשלוח</legend><div class="package-grid">
-            <button class="package-option is-selected" type="button" aria-pressed="true" data-package="חבילה קטנה"><i>▣</i><b>חבילה קטנה</b><small>מסמכים, מתנה או ציוד קל</small></button>
-            <button class="package-option" type="button" aria-pressed="false" data-package="חבילה בינונית"><i>▤</i><b>חבילה בינונית</b><small>קופסה או שקית גדולה</small></button>
+          <fieldset><legend data-i18n="delivery.package">סוג המשלוח</legend><div class="package-grid">
+            <button class="package-option is-selected" type="button" aria-pressed="true" data-package="small"><i>▣</i><b data-i18n="package.small">חבילה קטנה</b><small data-i18n="package.smallSub">מסמכים, מתנה או ציוד קל</small></button>
+            <button class="package-option" type="button" aria-pressed="false" data-package="medium"><i>▤</i><b data-i18n="package.medium">חבילה בינונית</b><small data-i18n="package.mediumSub">קופסה או שקית גדולה</small></button>
           </div></fieldset>
-          <fieldset><legend>פרטי השליחות</legend><div class="form-grid">
-            <label><span>משקל משוער</span><select id="weight"><option>עד 2 ק״ג</option><option>2–5 ק״ג</option><option>5–10 ק״ג</option><option>מעל 10 ק״ג</option></select></label>
-            <div class="distance-readout"><span>מרחק נסיעה</span><strong id="route-distance">ייחשב לפי מסלול</strong></div>
-            <label class="wide"><span>כתובת איסוף</span><input id="pickup" type="text" autocomplete="street-address" required placeholder="רחוב, מספר ועיר" /><button class="location-button" id="share-location" type="button">⌖ שתף את המיקום שלי</button></label>
-            <label class="wide"><span>כתובת יעד</span><input id="dropoff" type="text" autocomplete="street-address" required placeholder="רחוב, מספר ועיר" /></label>
+          <fieldset><legend data-i18n="delivery.details">פרטי השליחות</legend><div class="form-grid">
+            <label><span data-i18n="delivery.weight">משקל משוער</span><select id="weight"><option value="under2" data-i18n="weight.under2">עד 2 ק״ג</option><option value="twoToFive" data-i18n="weight.twoToFive">2–5 ק״ג</option><option value="fiveToTen" data-i18n="weight.fiveToTen">5–10 ק״ג</option><option value="overTen" data-i18n="weight.overTen">מעל 10 ק״ג</option></select></label>
+            <div class="distance-readout"><span data-i18n="delivery.distance">מרחק נסיעה</span><strong id="route-distance" data-i18n="delivery.distancePending">ייחשב לפי מסלול</strong></div>
+            <label class="wide"><span data-i18n="delivery.pickup">כתובת איסוף</span><input id="pickup" type="text" autocomplete="street-address" required placeholder="רחוב, מספר ועיר" data-i18n-placeholder="delivery.addressPlaceholder" /><button class="location-button" id="share-location" type="button" data-i18n="location.share">⌖ שתף את המיקום שלי</button></label>
+            <label class="wide"><span data-i18n="delivery.dropoff">כתובת יעד</span><input id="dropoff" type="text" autocomplete="street-address" required placeholder="רחוב, מספר ועיר" data-i18n-placeholder="delivery.addressPlaceholder" /></label>
           </div></fieldset>
-          <fieldset><legend>מתי?</legend><div class="time-toggle"><button class="is-selected" type="button" aria-pressed="true" data-time="עכשיו">עכשיו</button><button type="button" aria-pressed="false" data-time="מתוזמן">מתוזמן</button></div></fieldset>
-          <button class="quote-button" id="calculate-price" type="button">חשב מחיר משוער</button>
+          <fieldset><legend data-i18n="delivery.when">מתי?</legend><div class="time-toggle"><button class="is-selected" type="button" aria-pressed="true" data-time="now" data-i18n="time.now">עכשיו</button><button type="button" aria-pressed="false" data-time="scheduled" data-i18n="time.scheduled">מתוזמן</button></div></fieldset>
+          <button class="quote-button" id="calculate-price" type="button" data-i18n="delivery.quote">חשב מחיר משוער</button>
           <section id="price-estimate" class="price-estimate" hidden aria-live="polite"></section>
-          <button class="primary-button delivery-action" type="submit">המשך לסיכום</button>
+          <button class="primary-button delivery-action" type="submit" data-i18n="delivery.continue">המשך לסיכום</button>
         </form>
         <section id="delivery-summary" class="delivery-summary" hidden aria-live="polite"></section>
       </section>
 
-      <section class="page empty-page" data-page="orders"><div class="empty-icon">◷</div><h1>ההזמנות שלי</h1><p>בשלב הבא יוצגו כאן התורים והשליחויות שלך.</p><button class="primary-button" type="button" data-target="home">חזרה לדף הבית</button></section>
-      <section class="page empty-page" data-page="profile"><div class="empty-icon">◌</div><h1>הפרופיל שלי</h1><p>הרשמה עם מייל ונייד תתווסף בשלב הבא.</p><button class="primary-button" type="button" data-target="home">חזרה לדף הבית</button></section>
+      <section class="page empty-page" data-page="orders"><div class="empty-icon">◷</div><h1 data-i18n="orders.heading">ההזמנות שלי</h1><p data-i18n="orders.text">בשלב הבא יוצגו כאן התורים והשליחויות שלך.</p><button class="primary-button" type="button" data-target="home" data-i18n="backHome">חזרה לדף הבית</button></section>
 
-      <nav class="bottom-nav" aria-label="ניווט תחתון">
-        <button class="nav-link is-active" type="button" data-target="home"><span>⌂</span>בית</button>
-        <button class="nav-link" type="button" data-target="orders"><span>□</span>ההזמנות שלי</button>
-        <button class="nav-link" type="button" data-target="profile"><span>♙</span>פרופיל</button>
-      </nav>
+      <section class="page profile-page" data-page="profile">
+        <header class="subheader"><button class="back-button" type="button" aria-label="חזרה לדף הבית" data-target="home">›</button><div><h1 data-i18n="profile.heading">הפרופיל שלי</h1><p data-i18n="profile.subheading">כמה פרטים קטנים לחוויה אישית יותר.</p></div></header>
+        <section class="profile-intro"><span aria-hidden="true">✦</span><h2 data-i18n="profile.introTitle">נעים להכיר</h2><p data-i18n="profile.introText">בחר/י אווטר או העלה/י תמונה, ושמור/י את הפרטים לתצוגה אישית במכשיר זה.</p></section>
+        <form id="profile-form" class="profile-form" novalidate>
+          <div class="avatar-editor">
+            <button id="profile-photo-trigger" class="avatar-preview" type="button" aria-label="העלאת תמונת פרופיל"><span id="profile-avatar-preview">🌿</span><img id="profile-photo-preview" alt="תצוגה מקדימה של תמונת הפרופיל" hidden /></button>
+            <input id="profile-photo" type="file" accept="image/png,image/jpeg,image/webp" hidden />
+            <button class="upload-photo-button" id="profile-photo-button" type="button" data-i18n="profile.uploadPhoto">העלה תמונה</button>
+          </div>
+          <label class="profile-field"><span data-i18n="profile.firstName">שם פרטי</span><input id="profile-first-name" type="text" autocomplete="given-name" required maxlength="32" placeholder="איך נעים לפנות אליך?" data-i18n-placeholder="profile.namePlaceholder" /></label>
+          <label class="profile-field"><span data-i18n="profile.email">כתובת מייל</span><input id="profile-email" type="email" autocomplete="email" required placeholder="name@example.com" /></label>
+          <label class="profile-field"><span data-i18n="profile.phone">טלפון נייד</span><input id="profile-phone" type="tel" autocomplete="tel" required inputmode="tel" placeholder="050-000-0000" /></label>
+          <fieldset class="profile-field gender-field"><legend data-i18n="profile.gender">איך לפנות אליך?</legend><div class="gender-options"><button type="button" data-gender="female" aria-pressed="false"><span>♀</span><b data-i18n="profile.female">אישה</b></button><button type="button" data-gender="male" aria-pressed="false"><span>♂</span><b data-i18n="profile.male">גבר</b></button></div></fieldset>
+          <fieldset class="profile-field avatar-field"><legend data-i18n="profile.avatar">בחר/י אווטר</legend><div class="avatar-options" aria-label="בחירת אווטר" data-i18n-aria="profile.avatar"><button type="button" data-avatar="🌿" aria-pressed="true">🌿</button><button type="button" data-avatar="🪷" aria-pressed="false">🪷</button><button type="button" data-avatar="☀️" aria-pressed="false">☀️</button><button type="button" data-avatar="🌀" aria-pressed="false">🌀</button><button type="button" data-avatar="🚲" aria-pressed="false">🚲</button><button type="button" data-avatar="📦" aria-pressed="false">📦</button></div></fieldset>
+          <p class="profile-privacy-note" data-i18n="profile.localNote">גרסת הכנה: הפרטים נשמרים מקומית במכשיר זה בלבד, עד לחיבור מאובטח ל־Firebase.</p>
+          <button class="primary-button" type="submit" data-i18n="profile.save">שמור פרופיל להדגמה</button>
+        </form>
+      </section>
+
+      <nav class="bottom-nav" aria-label="ניווט תחתון" data-i18n-aria="nav.label"><button class="nav-link is-active" type="button" data-target="home"><span>⌂</span><b data-i18n="nav.home">בית</b></button><button class="nav-link" type="button" data-target="orders"><span>□</span><b data-i18n="nav.orders">ההזמנות שלי</b></button><button class="nav-link" type="button" data-target="profile"><span>♙</span><b data-i18n="nav.profile">פרופיל</b></button></nav>
     </main>
   </div>
+
+  <div id="menu-backdrop" class="menu-backdrop" aria-hidden="true">
+    <aside class="app-menu" role="dialog" aria-modal="true" aria-labelledby="menu-title">
+      <div class="menu-header"><div><span class="menu-mark">☯</span><h2 id="menu-title">CALLPHON</h2></div><button id="menu-close" class="icon-button" type="button" aria-label="סגירת תפריט">×</button></div>
+      <nav class="menu-links" aria-label="תפריט ראשי" data-i18n-aria="menu.label"><button type="button" data-target="home"><span>⌂</span><b data-i18n="nav.home">בית</b><i>‹</i></button><button type="button" data-target="massage"><span>✦</span><b data-i18n="menu.massage">בחירת טיפול</b><i>‹</i></button><button type="button" data-target="delivery"><span>▣</span><b data-i18n="menu.delivery">בקשת שליחות</b><i>‹</i></button><button type="button" data-target="orders"><span>□</span><b data-i18n="nav.orders">ההזמנות שלי</b><i>‹</i></button><button type="button" data-target="profile"><span>♙</span><b data-i18n="nav.profile">פרופיל</b><i>‹</i></button></nav>
+      <button id="whatsapp-contact" class="whatsapp-contact" type="button"><span>◔</span><span><b data-i18n="contact.whatsapp">צור קשר ב־WhatsApp</b><small id="whatsapp-status" data-i18n="contact.pending">מספר העסק יופעל לפני הפרסום</small></span><i>‹</i></button>
+      <section class="settings-panel" aria-label="הגדרות" data-i18n-aria="settings.label"><h3 data-i18n="settings.title">הגדרות תצוגה</h3><div class="setting-row"><span data-i18n="settings.language">שפה</span><div class="setting-choice"><button type="button" data-language-choice="he">עברית</button><button type="button" data-language-choice="en">English</button></div></div><div class="setting-row"><span data-i18n="settings.theme">מראה</span><div class="setting-choice"><button type="button" data-theme-choice="light" data-i18n="settings.light">בהיר</button><button type="button" data-theme-choice="dark" data-i18n="settings.dark">כהה</button></div></div></section>
+    </aside>
+  </div>
+
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
-  <div id="sheet" class="sheet-backdrop" aria-hidden="true"><section class="sheet" role="dialog" aria-modal="true" aria-labelledby="sheet-title"><h2 id="sheet-title"></h2><p id="sheet-text"></p><button class="primary-button" type="button" id="sheet-close">חזרה לבחירה</button></section></div>
+  <div id="sheet" class="sheet-backdrop" aria-hidden="true"><section class="sheet" role="dialog" aria-modal="true" aria-labelledby="sheet-title"><h2 id="sheet-title"></h2><p id="sheet-text"></p><button class="primary-button" type="button" id="sheet-close" data-i18n="sheet.close">חזרה לבחירה</button></section></div>
   <script src="./app.js"></script>
 </body>
 </html>
