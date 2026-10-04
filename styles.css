@@ -25,3 +25,12 @@
 .carousel-dots button:focus-visible{outline:2px solid white;outline-offset:3px}
 @media(max-width:360px){.service-carousel{height:162px}.carousel-copy{top:18px}.carousel-copy h2{font-size:18px}.carousel-copy p{font-size:11px}}
 @media(prefers-reduced-motion:reduce){.carousel-slide,.carousel-dots button{transition:none}}
+
+/* Kol-Phon wordmark: a more prominent yin-yang mark above the business name. */
+.topbar{height:68px}
+.brand{display:flex;min-width:166px;flex-direction:column;align-items:center;justify-content:center;padding-top:0;color:var(--forest);font-family:Heebo,Arial,sans-serif;font-size:inherit;letter-spacing:0;line-height:1;text-align:center}
+.brand:before{display:none}
+.brand-symbol{display:block;margin-bottom:3px;color:var(--gold);font-family:"Noto Sans Symbols 2","Segoe UI Symbol",serif;font-size:31px;line-height:.7;text-shadow:0 2px 7px rgba(200,163,85,.18)}
+.brand-name{font-size:20px;font-weight:800;letter-spacing:.15px}
+.brand-tagline{margin-top:3px;color:#5f7568;font-size:8px;font-weight:700;letter-spacing:.2px;white-space:nowrap}
+@media(max-width:360px){.topbar{height:64px}.brand{min-width:150px}.brand-symbol{font-size:27px}.brand-name{font-size:18px}.brand-tagline{font-size:7px}}
