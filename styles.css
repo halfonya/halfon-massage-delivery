@@ -44,3 +44,11 @@
 .topbar{height:88px}
 .brand-symbol{font-size:54px;line-height:.72}
 @media(max-width:360px){.topbar{height:78px}.brand-symbol{font-size:45px}}
+
+/* Framing ornaments for the welcome greeting. */
+.greeting{position:relative;padding:25px 66px 22px;isolation:isolate}
+.greeting-copy{position:relative;z-index:1}
+.greeting-ornament{position:absolute;z-index:0;top:12px;width:86px;height:86px;object-fit:contain;pointer-events:none;filter:drop-shadow(0 5px 7px rgba(23,72,58,.11))}
+.greeting-ornament--left{left:-8px}
+.greeting-ornament--right{right:-8px}
+@media(max-width:360px){.greeting{padding:22px 53px 19px}.greeting-ornament{top:15px;width:70px;height:70px}.greeting-ornament--left{left:-9px}.greeting-ornament--right{right:-9px}}
