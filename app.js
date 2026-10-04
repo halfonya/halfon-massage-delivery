@@ -337,3 +337,48 @@ document.addEventListener('keydown', event => {
     sheetClose.focus();
   }
 });
+
+const serviceCarousel = document.querySelector('#service-carousel');
+const carouselSlides = [...document.querySelectorAll('[data-carousel-slide]')];
+const carouselControls = [...document.querySelectorAll('[data-carousel-control]')];
+const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+let activeCarouselSlide = 0;
+let carouselTimer;
+
+function showCarouselSlide(index) {
+  if (!carouselSlides.length) return;
+  activeCarouselSlide = (index + carouselSlides.length) % carouselSlides.length;
+  carouselSlides.forEach((slide, itemIndex) => {
+    const isActive = itemIndex === activeCarouselSlide;
+    slide.classList.toggle('is-active', isActive);
+    slide.setAttribute('aria-hidden', String(!isActive));
+  });
+  carouselControls.forEach((control, itemIndex) => {
+    const isActive = itemIndex === activeCarouselSlide;
+    control.classList.toggle('is-active', isActive);
+    control.setAttribute('aria-selected', String(isActive));
+  });
+}
+
+function pauseCarousel() { clearInterval(carouselTimer); }
+
+function startCarousel() {
+  pauseCarousel();
+  if (reducedMotion.matches || carouselSlides.length < 2) return;
+  carouselTimer = window.setInterval(() => showCarouselSlide(activeCarouselSlide + 1), 5200);
+}
+
+if (serviceCarousel && carouselSlides.length) {
+  showCarouselSlide(0);
+  carouselControls.forEach(control => control.addEventListener('click', () => {
+    showCarouselSlide(Number(control.dataset.carouselControl));
+    startCarousel();
+  }));
+  serviceCarousel.addEventListener('mouseenter', pauseCarousel);
+  serviceCarousel.addEventListener('mouseleave', startCarousel);
+  serviceCarousel.addEventListener('focusin', pauseCarousel);
+  serviceCarousel.addEventListener('focusout', startCarousel);
+  document.addEventListener('visibilitychange', () => document.hidden ? pauseCarousel() : startCarousel());
+  reducedMotion.addEventListener('change', startCarousel);
+  startCarousel();
+}

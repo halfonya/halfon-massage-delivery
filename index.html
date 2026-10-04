@@ -42,9 +42,24 @@
           </button>
         </div>
 
-        <section class="trust-banner" aria-label="הבטחת שירות">
-          <div><strong>שירותים שמטפלים בך<br />ובמה שחשוב לך</strong><small>פשוט, אישי ובקצב שלך</small></div>
-          <div class="stones" aria-hidden="true"><b></b><b></b><b></b></div>
+        <section class="service-carousel" id="service-carousel" aria-label="מסרים מהשירותים שלנו" aria-roledescription="carousel">
+          <article class="carousel-slide is-active" data-carousel-slide aria-label="1 מתוך 3">
+            <img src="assets/carousel-delivery.jpg" alt="לקוחה מקבלת חבילה משליח אופניים בפתח הבית" />
+            <div class="carousel-copy"><span>קו שליחויות חדש</span><h2>אחריות ואמינות בכל מסירה</h2><p>מגיעים אליך בדיוק כשחשוב.</p></div>
+          </article>
+          <article class="carousel-slide" data-carousel-slide aria-label="2 מתוך 3">
+            <img src="assets/carousel-massage-men.jpg" alt="מעסה מעניק עיסוי מקצועי למטופל בחדר טיפול רגוע" />
+            <div class="carousel-copy"><span>זמן לעצמך</span><h2>הרשה לעצמך לטפל בך</h2><p>מגע מקצועי לשחרור, איזון וחידוש כוחות.</p></div>
+          </article>
+          <article class="carousel-slide" data-carousel-slide aria-label="3 מתוך 3">
+            <img src="assets/carousel-massage-women.jpg" alt="מעסה מעניקה עיסוי כתפיים מרגיע למטופלת בחדר טיפול" />
+            <div class="carousel-copy"><span>מגיע לך רגע</span><h2>נשימה עמוקה. גוף רגוע.</h2><p>טיפול שמותאם לקצב שלך.</p></div>
+          </article>
+          <div class="carousel-dots" role="tablist" aria-label="בחירת מסר בקרוסלה">
+            <button class="is-active" type="button" role="tab" aria-label="הצג מסר שליחויות" aria-selected="true" data-carousel-control="0"></button>
+            <button type="button" role="tab" aria-label="הצג מסר טיפול ראשון" aria-selected="false" data-carousel-control="1"></button>
+            <button type="button" role="tab" aria-label="הצג מסר טיפול שני" aria-selected="false" data-carousel-control="2"></button>
+          </div>
         </section>
       </section>
 
