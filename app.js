@@ -1,20 +1,20 @@
 const pricing = { base: 20, perKm: 5, minimum: 25, weight: { under2: 0, twoToFive: 5, fiveToTen: 10 } };
-const business = { whatsapp: '' };
+const business = { whatsapp: '9725487641111' };
 const settingsKey = 'callphon.settings.v1';
 const profileKey = 'callphon.profile.v1';
 
 const translations = {
   he: {
-    app: { title: 'CALLPHON | מגע, תנועה ושליחויות', description: 'CALLPHON — מגע, תנועה ושליחויות פרטיות, במקום אחד.' },
-    brand: { tagline: 'מגע • תנועה • שליחויות' },
-    home: { question: 'מה תרצה היום?', services: 'בחירת שירות', chooseMassage: 'בחר סוג טיפול', massageSub: 'רוגע שמתחיל עכשיו', chooseDelivery: 'בחר סוג שליחות', deliverySub: 'מגיעים עד אליך', welcome: 'ברוך שובך' },
+    app: { title: 'CALLPHON | שליחויות פרטיות', description: 'CALLPHON — שליחויות פרטיות, מהירות ואחראיות.' },
+    brand: { tagline: 'שליחויות פרטיות' },
+    home: { question: 'מה תרצה היום?', services: 'בחירת שליחות', chooseMassage: 'בחר סוג טיפול', massageSub: 'רוגע שמתחיל עכשיו', chooseDelivery: 'בחר סוג שליחות', deliverySub: 'מגיעים עד אליך', welcome: 'ברוך שובך' },
     images: { massage: 'מעסה ומטופל במהלך עיסוי מקצועי', delivery: 'שליח על אופניים עם חבילה' },
     nav: { label: 'ניווט תחתון', home: 'בית', orders: 'ההזמנות שלי', profile: 'פרופיל' },
     menu: { label: 'תפריט ראשי', massage: 'בחירת טיפול', delivery: 'בקשת שליחות' },
-    contact: { whatsapp: 'צור קשר ב־WhatsApp', heroEyebrow: 'יש שאלה? אנחנו כאן בשבילך', heroWhatsapp: 'צור קשר ב־WhatsApp', pending: 'מספר העסק יופעל לפני הפרסום', unavailable: 'מספר ה־WhatsApp העסקי יוגדר לפני הפרסום.' },
+    contact: { whatsapp: 'צור קשר ב־WhatsApp', heroEyebrow: 'שליחות או שאלה? אנחנו כאן בשבילך', heroWhatsapp: 'שלחו לנו הודעה ב־WhatsApp', pending: 'פתיחת WhatsApp עם CALLPHON', unavailable: 'לא ניתן לפתוח כרגע את WhatsApp.' },
     settings: { label: 'הגדרות', title: 'הגדרות תצוגה', language: 'שפה', theme: 'מראה', light: 'בהיר', dark: 'כהה' },
     carousel: {
-      label: 'מסרים מהשירותים שלנו', tabs: 'בחירת מסר בקרוסלה', slideAria: 'שקופית {n} מתוך {total}', tabAria: 'הצג שקופית {n}',
+      label: 'מסרי שליחויות', tabs: 'בחירת מסר בקרוסלה', slideAria: 'שקופית {n} מתוך {total}', tabAria: 'הצג שקופית {n}',
       delivery1: { eyebrow: 'קו שליחויות חדש', title: 'אחריות ואמינות בכל מסירה', text: 'מגיעים אליך בדיוק כשחשוב.', alt: 'לקוחה מקבלת חבילה משליח אופניים בפתח הבית' },
       massage1: { eyebrow: 'זמן לעצמך', title: 'הרשה לעצמך לטפל בך', text: 'מגע מקצועי לשחרור, איזון וחידוש כוחות.', alt: 'מעסה מעניק עיסוי מקצועי למטופל בחדר טיפול רגוע' },
       delivery2: { eyebrow: 'יחס אישי', title: 'שירות שתכירו ותוקירו', text: 'כל שליחות מקבלת את תשומת הלב שלה.', alt: 'שליח מוסר חבילה אישית לעסק מקומי' },
@@ -34,16 +34,16 @@ const translations = {
     sheet: { close: 'חזרה לבחירה' }, backHome: 'חזרה לדף הבית'
   },
   en: {
-    app: { title: 'CALLPHON | Touch, Motion & Delivery', description: 'CALLPHON — private massage, movement and delivery in one place.' },
-    brand: { tagline: 'Touch • Motion • Delivery' },
-    home: { question: 'What would you like today?', services: 'Choose a service', chooseMassage: 'Choose a treatment', massageSub: 'Your calm begins now', chooseDelivery: 'Choose a delivery', deliverySub: 'We come to you', welcome: 'Welcome back' },
+    app: { title: 'CALLPHON | Private Delivery', description: 'CALLPHON — private, fast and reliable delivery.' },
+    brand: { tagline: 'Private Delivery' },
+    home: { question: 'What would you like today?', services: 'Choose a delivery', chooseMassage: 'Choose a treatment', massageSub: 'Your calm begins now', chooseDelivery: 'Choose a delivery', deliverySub: 'We come to you', welcome: 'Welcome back' },
     images: { massage: 'Therapist and client during a professional massage', delivery: 'Bicycle courier with a package' },
     nav: { label: 'Bottom navigation', home: 'Home', orders: 'My bookings', profile: 'Profile' },
     menu: { label: 'Main menu', massage: 'Choose a treatment', delivery: 'Delivery request' },
-    contact: { whatsapp: 'Contact us on WhatsApp', heroEyebrow: 'Have a question? We are here for you', heroWhatsapp: 'Contact us on WhatsApp', pending: 'Business number will be enabled before launch', unavailable: 'The business WhatsApp number will be set before launch.' },
+    contact: { whatsapp: 'Contact us on WhatsApp', heroEyebrow: 'Delivery or a question? We are here', heroWhatsapp: 'Message us on WhatsApp', pending: 'Open WhatsApp with CALLPHON', unavailable: 'WhatsApp is not available right now.' },
     settings: { label: 'Settings', title: 'Display settings', language: 'Language', theme: 'Appearance', light: 'Light', dark: 'Dark' },
     carousel: {
-      label: 'Service messages', tabs: 'Choose a carousel message', slideAria: 'Slide {n} of {total}', tabAria: 'Open slide {n}',
+      label: 'Delivery messages', tabs: 'Choose a carousel message', slideAria: 'Slide {n} of {total}', tabAria: 'Open slide {n}',
       delivery1: { eyebrow: 'A new delivery line', title: 'Responsibility and reliability in every handoff', text: 'We arrive when it matters most.', alt: 'Customer receiving a package from a bicycle courier at her door' },
       massage1: { eyebrow: 'Time for yourself', title: 'Give yourself the care you deserve', text: 'Professional touch for release, balance and renewed energy.', alt: 'Therapist giving a professional massage to a client in a calm room' },
       delivery2: { eyebrow: 'Personal attention', title: 'Service you will know and appreciate', text: 'Every delivery gets the attention it deserves.', alt: 'Courier handing a personal package to a local business' },
@@ -72,7 +72,6 @@ let settings = { language: 'he', theme: 'light', ...getStored(settingsKey, {}) }
 let profile = { firstName: '', email: '', phone: '', gender: '', avatar: '🌿', photo: '', ...getStored(profileKey, {}) };
 const state = {
   treatment: '', package: 'small', time: 'now', pickupCoords: null, estimate: null,
-  massage: { location: 'clinic', homeAddress: '', homeCoords: null, iceBath: false, doctorApproved: false }
 };
 
 const pages = [...document.querySelectorAll('[data-page]')];
@@ -133,7 +132,6 @@ function applySettings() {
   document.querySelectorAll('[data-language-choice]').forEach(button => button.classList.toggle('is-selected', button.dataset.languageChoice === settings.language));
   document.querySelectorAll('[data-theme-choice]').forEach(button => button.classList.toggle('is-selected', button.dataset.themeChoice === settings.theme));
   updateGreeting();
-  updateMassageExtras();
   if (state.estimate?.manual) showManualQuote();
   if (state.estimate && !state.estimate.manual) showEstimate(state.estimate);
   renderProfile();
@@ -354,38 +352,6 @@ document.querySelector('#whatsapp-hero').addEventListener('click', openWhatsapp)
 window.addEventListener('hashchange', () => renderPage());
 document.addEventListener('DOMContentLoaded', () => { applySettings(); renderPage(); });
 
-document.querySelectorAll('.treatment-card').forEach(card => card.addEventListener('click', () => {
-  document.querySelectorAll('.treatment-card').forEach(item => { item.classList.remove('is-selected'); item.setAttribute('aria-pressed', 'false'); });
-  card.classList.add('is-selected');
-  card.setAttribute('aria-pressed', 'true');
-  state.treatment = card.dataset.treatment;
-  document.querySelector('#treatment-continue').disabled = false;
-}));
-document.querySelector('#treatment-continue').addEventListener('click', () => {
-  if (!state.treatment) return;
-  if (state.massage.location === 'home' && !massageAddressInput.value.trim()) { toast(t('massage.missingAddress')); return; }
-  if (state.massage.iceBath && !state.massage.doctorApproved) { toast(t('massage.missingDoctor')); return; }
-  const location = state.massage.location === 'home'
-    ? format(t('massage.homeSummary'), { address: massageAddressInput.value.trim() }) : t('massage.clinicSummary');
-  const iceBath = state.massage.iceBath ? t('massage.iceBathSummary') : t('massage.noIceBath');
-  showSheet(t('massage.selectedTitle'), format(t('massage.selectedText'), { treatment: t(`treatment.${state.treatment}`), location, iceBath }));
-});
-document.querySelectorAll('[data-massage-location]').forEach(button => button.addEventListener('click', () => {
-  document.querySelectorAll('[data-massage-location]').forEach(item => { item.classList.remove('is-selected'); item.setAttribute('aria-pressed', 'false'); });
-  button.classList.add('is-selected'); button.setAttribute('aria-pressed', 'true');
-  state.massage.location = button.dataset.massageLocation;
-  massageLocationFields.hidden = state.massage.location !== 'home';
-  updateMassageExtras();
-}));
-massageAddressInput.addEventListener('input', () => { state.massage.homeCoords = null; state.massage.homeAddress = massageAddressInput.value.trim(); });
-massageLocationButton.addEventListener('click', useMassageLocation);
-iceBathInput.addEventListener('change', () => {
-  state.massage.iceBath = iceBathInput.checked;
-  if (!state.massage.iceBath) { doctorApprovalInput.checked = false; state.massage.doctorApproved = false; }
-  medicalApproval.hidden = !state.massage.iceBath;
-  updateMassageExtras();
-});
-doctorApprovalInput.addEventListener('change', () => { state.massage.doctorApproved = doctorApprovalInput.checked; });
 
 document.querySelectorAll('.package-option').forEach(option => option.addEventListener('click', () => {
   document.querySelectorAll('.package-option').forEach(item => { item.classList.remove('is-selected'); item.setAttribute('aria-pressed', 'false'); });
