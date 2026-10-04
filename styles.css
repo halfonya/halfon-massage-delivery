@@ -34,3 +34,13 @@
 .brand-name{font-size:20px;font-weight:800;letter-spacing:.15px}
 .brand-tagline{margin-top:3px;color:#5f7568;font-size:8px;font-weight:700;letter-spacing:.2px;white-space:nowrap}
 @media(max-width:360px){.topbar{height:64px}.brand{min-width:150px}.brand-symbol{font-size:27px}.brand-name{font-size:18px}.brand-tagline{font-size:7px}}
+
+/* Larger yin-yang mark requested for the Kol-Phon logo. */
+.topbar{height:80px}
+.brand-symbol{margin-bottom:4px;font-size:44px;line-height:.72}
+@media(max-width:360px){.topbar{height:74px}.brand-symbol{font-size:38px}}
+
+/* Final larger logo scale for clearer mobile visibility. */
+.topbar{height:88px}
+.brand-symbol{font-size:54px;line-height:.72}
+@media(max-width:360px){.topbar{height:78px}.brand-symbol{font-size:45px}}
