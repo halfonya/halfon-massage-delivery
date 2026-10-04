@@ -1,5 +1,5 @@
 const pricing = { base: 20, perKm: 5, minimum: 25, weight: { under2: 0, twoToFive: 5, fiveToTen: 10 } };
-const business = { whatsapp: '9725487641111' };
+const business = { whatsapp: '972548764111' };
 const settingsKey = 'callphon.settings.v1';
 const profileKey = 'callphon.profile.v1';
 
